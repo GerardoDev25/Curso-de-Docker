@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.7"
 
 services:
   app:
@@ -8,7 +8,42 @@ services:
     depends_on:
       - db
     ports:
-      - "3000:3000"
+      - "3000-3001:3000"
 
   db:
     image: mongo
+
+# version: "3.7"
+
+# services:
+#   app:
+#     container_name: app
+#     image: platziapp
+#     environment:
+#       MONGO_URL: "mongodb://db:27017/test"
+#     depends_on:
+#       - db
+#     ports:
+#       - "3000:3000"
+#   db:
+#     container_name: db
+#     image: mongo
+
+# version: "3.7"
+
+# services:
+#   app:
+#     build: .
+#     environment:
+#       MONGO_URL: "mongodb://db:27017/test"
+#     depends_on:
+#       - db
+#     ports:
+#       - "3000:3000"
+#     volumes:
+#       - .:/usr/src
+#       - /usr/src/node_modules
+#     command: npx nodemon index.js
+#   db:
+#     container_name: db
+#     image: mongo
